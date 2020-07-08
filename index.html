@@ -3,14 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="issue-search">
       https://github.com/
-      <input type="text" id="owner" name="owner" value="">
-      <!-- <input type="text" name="repo" value="">
-      <button type="button" name="button">Поиск</button> -->
+      <input type="text" id="owner" name="owner" value="" size=4 placeholder=":owner">/
+      <input type="text" id="repo" name="repo" value="" size=4 placeholder=":repo" hidden>
+      <button type="button" id="search" name="button" hidden>Поиск</button>
     </div>
+    <div class="issues-output">
+      <table class="issues-output">
+
+      </table>
+    </div>
+    <script src="functionality_form.js" charset="utf-8"></script>
+    <script src="processing_request.js" charset="utf-8"></script>
     <script src="script.js" charset="utf-8"></script>
   </body>
 </html>

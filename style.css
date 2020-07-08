@@ -1,0 +1,22 @@
+div.issue-search {
+  font-family: Arial, Verdana,  sans-serif; /* Семейство шрифтов */
+  font-size: 25pt; /* Размер основного шрифта в пунктах  */
+  background-color: #f0f0f0; /* Цвет фона веб-страницы */
+  color: #333; /* Цвет основного текста */
+  padding-left: 10%;
+}
+input {
+  /* font-family: inherit; */
+  font-size: inherit;
+  background-color: #f0f0f0;
+  color: inherit;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  outline: none;
+  text-align: center;
+}
+button {
+  font-family: inherit;
+  font-size: 18pt;
+}
