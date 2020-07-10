@@ -13,7 +13,7 @@ async function getIssure (url){
       return await result.json();
     }
     throw new Error('Something wrong!')
-};
+}
 
 const someFunct = async (url) => {
   try {
