@@ -23,7 +23,10 @@ const tryGetIssues = async (url) => {
 }
 
 function outputIssues(issues){
-   issues.forEach(renderIssues);
+    clearOldIssures();
+    if(issues.length === 0)
+      textInfo.innerText = 'There\'s nothing here';
+    issues.forEach(renderIssues);
 }
 
 function renderIssues(issue){
@@ -33,4 +36,8 @@ function renderIssues(issue){
   copy.querySelector(".body").innerText = `${issue.body.substr(0,100)}...`;
   copy.querySelector(".comments").innerText = issue.comments;
   tableOfIssues.append(copy);
+}
+
+function clearOldIssures(){
+  Array.from(tableOfIssues.children).forEach(issue => issue.remove());
 }
