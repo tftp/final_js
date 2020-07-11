@@ -1,7 +1,3 @@
-
-const url = 'https://api.github.com/repos/facebook/react/issues'
-//const url = 'https://api.github.com/repos/facebook/react/issues?assignee=*'
-
 async function getIssure (url){
     const result = await fetch(url, {
       headers: {
@@ -15,17 +11,26 @@ async function getIssure (url){
     throw new Error('Something wrong!')
 }
 
-const tryGetResult = async (url) => {
+const tryGetIssues = async (url) => {
   try {
     textInfo.innerText = 'Loading...';
     const result = await getIssure(url);
     textInfo.innerText = '';
-    outputResult(result);
+    outputIssues(result);
   } catch (e){
     textInfo.innerText = `You have error: ${e}`;
   }
 }
 
-function outputResult(result){
-  console.log(result);
+function outputIssues(issues){
+   issues.forEach(renderIssues);
+}
+
+function renderIssues(issue){
+  const copy = template.content.cloneNode(true);
+  copy.querySelector(".title").innerText = issue.title;
+  copy.querySelector(".number").innerText = `Number issue #${issue.number}. Data ${issue.created_at}`;
+  copy.querySelector(".body").innerText = `${issue.body.substr(0,100)}...`;
+  copy.querySelector(".comments").innerText = issue.comments;
+  tableOfIssues.append(copy);
 }

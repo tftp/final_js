@@ -1,24 +1,19 @@
-//const issureSearch = document.querySelector('.issue-search');
 const ownerInput = document.querySelector('#owner');
 const repoInput = document.querySelector('#repo');
 const searchButton = document.querySelector('#search');
 const textInfo = document.querySelector('#info');
+const tableOfIssues = document.querySelector('.table-of-issues');
+const template = document.querySelector('#template');
 
 ownerInput.addEventListener('input', (event) => { debounceProcessInput(event.target) });
 repoInput.addEventListener('input', (event) => { debounceProcessInput(event.target) });
-searchButton.addEventListener('click', () => tryGetResult(getUrl()));
+searchButton.addEventListener('click', () => tryGetIssues(getUrl()));
 
 function getUrl(){
   const owner = ownerInput.value;
   const repo = repoInput.value;
   return `https://api.github.com/repos/${owner}/${repo}/issues?assignee=*`
-//  console.log(url);
 }
-
-// function sendRequest(){
-//   tryGetResult(getUrl());
-// //  console.log(result);
-// }
 
 function visibleElement(element){
   element.hidden = false;
@@ -42,7 +37,6 @@ function changeSize(obj, size){
 function processingInput(obj){
   visibleElement(obj.nextElementSibling);
   changeSize(obj, obj.value.length);
-  console.log(obj.value)
 }
 
 function debounce(func, time){

@@ -14,14 +14,20 @@
       <button type="button" id="search" name="button" hidden>Поиск</button>
     </div>
     <div class="issues-output">
-      <table class="issues-output">
+      <table class="table-of-issues">
       </table>
     </div>
     <template id="template">
       <tr>
-        <td id="data1" width=5% align="left"> <img src="01.png" width=30></td>
-        <td id="data2" width=85%></td>
-        <td id="data3" width=10% align="right"> <img src="02.jpeg" width=30></td>
+        <td class="data1" width=5% align="left"> <img src="01.png" width=30></td>
+        <td class="data2" width=80%>
+          <div class="title"></div>
+          <div class="body"></div>
+          <div class="number"></div>
+        </td>
+        <td class="data3" width=15% align="right"> <img src="02.jpeg" width=30>
+          <div class="comments"></div>
+        </td>
       </tr>
     </template>
 

@@ -3,7 +3,17 @@ div.issue-search {
   font-size: 25pt;
   background-color: #f0f0f0;
   color: #333;
-  padding-left: 10%;
+  padding: 10px;
+  margin-left: 80px;
+  margin-bottom: 10px;
+  width: 80%;
+}
+div.issues-output {
+  margin-left: 80px;
+  width: 80%;
+}
+.number, .body, .comments {
+  font-size: 10pt;
 }
 input {
   font-size: inherit;
@@ -18,4 +28,16 @@ input {
 button {
   font-family: inherit;
   font-size: 18pt;
+}
+table {
+  font-family: Arial, Verdana,  sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  width: 100%;
+  border-collapse: collapse;
+}
+td {
+  font-size: 18pt;
+  padding: 10px;
+  /* border: 1px solid black; */
 }
