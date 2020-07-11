@@ -15,13 +15,17 @@ async function getIssure (url){
     throw new Error('Something wrong!')
 }
 
-const someFunct = async (url) => {
+const tryGetResult = async (url) => {
   try {
-    const result = await getIssure(url)
-    console.log(result)
+    textInfo.innerText = 'Loading...';
+    const result = await getIssure(url);
+    textInfo.innerText = '';
+    outputResult(result);
   } catch (e){
-    console.error(e);
+    textInfo.innerText = `You have error: ${e}`;
   }
 }
 
-//someFunct(url);
+function outputResult(result){
+  console.log(result);
+}

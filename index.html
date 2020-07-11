@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div class="info" id='info'></div>
     <div class="issue-search">
       https://github.com/
       <input type="text" id="owner" name="owner" value="" size=4 placeholder=":owner">/
@@ -14,12 +15,18 @@
     </div>
     <div class="issues-output">
       <table class="issues-output">
-
       </table>
     </div>
+    <template id="template">
+      <tr>
+        <td id="data1" width=5% align="left"> <img src="01.png" width=30></td>
+        <td id="data2" width=85%></td>
+        <td id="data3" width=10% align="right"> <img src="02.jpeg" width=30></td>
+      </tr>
+    </template>
+
     <script src="img_coding.js" charset="utf-8"></script>
     <script src="functionality_form.js" charset="utf-8"></script>
     <script src="processing_request.js" charset="utf-8"></script>
-    <script src="script.js" charset="utf-8"></script>
   </body>
 </html>

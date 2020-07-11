@@ -2,10 +2,23 @@
 const ownerInput = document.querySelector('#owner');
 const repoInput = document.querySelector('#repo');
 const searchButton = document.querySelector('#search');
+const textInfo = document.querySelector('#info');
 
-ownerInput.addEventListener('input', (event) => { debounceProcessInput(event.target) })
-repoInput.addEventListener('input', (event) => { debounceProcessInput(event.target) })
+ownerInput.addEventListener('input', (event) => { debounceProcessInput(event.target) });
+repoInput.addEventListener('input', (event) => { debounceProcessInput(event.target) });
+searchButton.addEventListener('click', () => tryGetResult(getUrl()));
 
+function getUrl(){
+  const owner = ownerInput.value;
+  const repo = repoInput.value;
+  return `https://api.github.com/repos/${owner}/${repo}/issues?assignee=*`
+//  console.log(url);
+}
+
+// function sendRequest(){
+//   tryGetResult(getUrl());
+// //  console.log(result);
+// }
 
 function visibleElement(element){
   element.hidden = false;
@@ -32,7 +45,7 @@ function processingInput(obj){
   console.log(obj.value)
 }
 
-function deb(func, time){
+function debounce(func, time){
   return function(value){
     let lastTime = this.currentTime;
     this.currentTime = new Date().getTime();
@@ -43,4 +56,4 @@ function deb(func, time){
   }
 }
 
-let debounceProcessInput = deb(processingInput, 500);
+let debounceProcessInput = debounce(processingInput, 500);
