@@ -35,6 +35,7 @@ table {
   color: #333;
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 50px;
 }
 td {
   font-size: 18pt;

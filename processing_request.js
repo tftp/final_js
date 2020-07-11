@@ -1,3 +1,7 @@
+const textInfo = document.querySelector('#info');
+const tableOfIssues = document.querySelector('.table-of-issues');
+const template = document.querySelector('#template');
+
 async function getIssure (url){
     const result = await fetch(url, {
       headers: {

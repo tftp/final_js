@@ -1,9 +1,6 @@
 const ownerInput = document.querySelector('#owner');
 const repoInput = document.querySelector('#repo');
 const searchButton = document.querySelector('#search');
-const textInfo = document.querySelector('#info');
-const tableOfIssues = document.querySelector('.table-of-issues');
-const template = document.querySelector('#template');
 
 ownerInput.addEventListener('input', (event) => { debounceProcessInput(event.target) });
 repoInput.addEventListener('input', (event) => { debounceProcessInput(event.target) });
@@ -31,6 +28,7 @@ function changeSize(obj, size){
     }
   }
   if(size < 4) size = 4;
+  if(size > 15) size = 15;
   obj.size = size;
 }
 
