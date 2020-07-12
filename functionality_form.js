@@ -21,15 +21,21 @@ function hiddenElement(element){
 }
 
 function changeSize(obj, size){
-  if(size === 0) {
+  const min = 4;
+  const max = 15;
+  if(!size) {
     hiddenElement(obj.nextElementSibling);
     if(obj === ownerInput) {
       hiddenElement(searchButton);
     }
   }
-  if(size < 4) size = 4;
-  if(size > 15) size = 15;
-  obj.size = size;
+  obj.size = validateSize(size, min, max);
+}
+
+function validateSize(size, min, max){
+  if(size < min) size = min;
+  if(size > max) size = max;
+  return size;
 }
 
 function processingInput(obj){
