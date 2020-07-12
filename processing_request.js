@@ -12,7 +12,8 @@ async function getIssure (url){
     if(result.ok){
       return await result.json();
     }
-    throw new Error('Something wrong!')
+//    console.log(result);
+    throw new Error(`Something wrong! Error ${result.status}: ${result.statusText}`);
 }
 
 const tryGetIssues = async (url) => {
