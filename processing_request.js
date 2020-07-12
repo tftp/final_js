@@ -29,7 +29,7 @@ const tryGetIssues = async (url) => {
 
 function outputIssues(issues){
     clearOldIssures();
-    if(issues.length === 0)
+    if(!issues.length)
       textInfo.innerText = 'There\'s nothing here';
     issues.forEach(renderIssues);
 }
