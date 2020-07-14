@@ -12,7 +12,6 @@ async function getIssure (url){
     if(result.ok){
       return await result.json();
     }
-//    console.log(result);
     throw new Error(`Something wrong! Error ${result.status}: ${result.statusText}`);
 }
 
