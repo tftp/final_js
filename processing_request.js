@@ -2,7 +2,7 @@ const textInfo = document.querySelector('#info');
 const tableOfIssues = document.querySelector('.table-of-issues');
 const template = document.querySelector('#template');
 
-async function getIssure (url){
+async function getIssue (url){
     const result = await fetch(url, {
       headers: {
         'Accept': 'application/vnd.github.machine-man-preview'
@@ -15,10 +15,10 @@ async function getIssure (url){
     throw new Error(`Something wrong! Error ${result.status}: ${result.statusText}`);
 }
 
-const tryGetIssues = async (url) => {
+const processingRequest = async (url) => {
   try {
     textInfo.innerText = 'Loading...';
-    const result = await getIssure(url);
+    const result = await getIssue(url);
     textInfo.innerText = '';
     outputIssues(result);
   } catch (e){
@@ -43,5 +43,5 @@ function renderIssues(issue){
 }
 
 function clearOldIssures(){
-  Array.from(tableOfIssues.children).forEach(issue => issue.remove());
+  tableOfIssues.innerHTML = "";
 }

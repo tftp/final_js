@@ -4,7 +4,7 @@ const searchButton = document.querySelector('#search');
 
 ownerInput.addEventListener('input', (event) => { debounceProcessInput(event.target) });
 repoInput.addEventListener('input', (event) => { debounceProcessInput(event.target) });
-searchButton.addEventListener('click', () => tryGetIssues(getUrl()));
+searchButton.addEventListener('click', () => processingRequest(getUrl()));
 
 function getUrl(){
   const owner = ownerInput.value;
@@ -21,20 +21,26 @@ function hiddenElement(element){
 }
 
 function changeSize(obj, size){
-  const min = 4;
-  const max = 15;
+  const minSize = 4;
+  const maxSize = 15;
   if(!size) {
     hiddenElement(obj.nextElementSibling);
     if(obj === ownerInput) {
       hiddenElement(searchButton);
     }
   }
-  obj.size = validateSize(size, min, max);
+  obj.size = validateSize(size, minSize, maxSize);
 }
 
 function validateSize(size, min, max){
-  if(size < min) size = min;
-  if(size > max) size = max;
+  if(size < min) {
+    size = min;
+  }
+
+  if(size > max) {
+    size = max;
+  }
+
   return size;
 }
 
